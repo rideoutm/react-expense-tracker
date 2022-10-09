@@ -4,6 +4,10 @@
   gap: 1rem;
   margin-bottom: 1rem;
   text-align: left;
+
+  &--hidden {
+    display: none;
+  }
 }
 
 .new-expense__control label {
@@ -23,4 +27,16 @@
 
 .new-expense__actions {
   text-align: right;
+}
+
+.show-hide {
+  margin: 2rem 0;
+
+  &:hover {
+    background: #8b51cd;
+  }
+
+  &--hidden {
+    display: none;
+  }
 }

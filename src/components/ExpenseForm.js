@@ -5,6 +5,7 @@ function ExpenseForm({ onSaveExpenseData }) {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [showAddExp, setShowAddExp] = useState(true);
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -32,7 +33,22 @@ function ExpenseForm({ onSaveExpenseData }) {
   };
   return (
     <form action="">
-      <div className="new-expense__controls">
+      <button
+        onClick={(e) => {
+          setShowAddExp(false);
+          e.preventDefault();
+        }}
+        className={showAddExp ? "show-hide" : "show-hide--hidden"}
+      >
+        Add New Expense
+      </button>
+      <div
+        className={
+          !showAddExp
+            ? "new-expense__controls"
+            : "new-expense__controls--hidden"
+        }
+      >
         <div className="new-expense__control">
           <label htmlFor="">Title</label>
           <input
@@ -62,6 +78,7 @@ function ExpenseForm({ onSaveExpenseData }) {
           />
         </div>
         <div className="new-expense__actions">
+          <button onClick={() => setShowAddExp(false)}>Cancel</button>
           <button type="submit" onClick={submitHandler}>
             Add Expense
           </button>

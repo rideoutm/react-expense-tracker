@@ -2,6 +2,7 @@ import { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.scss";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesChart from "./ExpensesChart";
 
 function Expenses({ expenses }) {
   const [selectedYear, setSelectedYear] = useState("2020");
@@ -14,6 +15,7 @@ function Expenses({ expenses }) {
           setSelectedYear={setSelectedYear}
           selectedYear={selectedYear}
         />
+        <ExpensesChart expenses={expenses} />
         {expenses
           .filter((el) => el.date.getFullYear().toString() === selectedYear)
           .map((expense) => {
